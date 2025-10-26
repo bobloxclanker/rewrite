@@ -316,8 +316,8 @@ function Assets:Window(ScreenAsset,Window)
 		Watermark.Title = GetType(Watermark.Title,"Hello World!","string")
 		Watermark.Flag = GetType(Watermark.Flag,"UI/Watermark/Position","string")
 
-		ScreenAsset.Watermark.Visible = Watermark.Enabled
-		ScreenAsset.Watermark.Text = Watermark.Title
+		ScreenAsset.Watermark.Visible = false
+		ScreenAsset.Watermark.Text = ""
 
 		ScreenAsset.Watermark.Size = UDim2.fromOffset(
 			ScreenAsset.Watermark.TextBounds.X + 6,
@@ -2052,5 +2052,6 @@ function Bracket:Notification2(Notification)
 		end)
 	end)
 end
+
 
 return Bracket
