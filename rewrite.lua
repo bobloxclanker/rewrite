@@ -237,6 +237,17 @@ function Assets:Window(ScreenAsset,Window)
 	WindowAsset.Title.Text = Window.Name
 	WindowAsset.Position = Window.Position
 	WindowAsset.Size = Window.Size
+	-- Remove "Bracket V3.3" from top right
+	task.spawn(function()
+		for _, child in pairs(WindowAsset:GetDescendants()) do
+			if child:IsA("TextLabel") or child:IsA("TextButton") then
+				if child.Text and (child.Text:match("Bracket") or child.Text:match("V3")) then
+					child.Text = "" -- Clear it
+					-- OR: child.Visible = false to hide it completely
+				end
+			end
+		end
+	end)
 
 	MakeDraggable(WindowAsset.Drag,WindowAsset,function(Position)
 		Window.Position = Position
@@ -2055,4 +2066,5 @@ end
 
 
 return Bracket
+
 
